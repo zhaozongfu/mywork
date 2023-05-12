@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="./echarts.min.js"></script>
+    <style>
+      body {
+        background-color: aliceblue;
+      }
+      .b {
+        margin-left: -900px;
+        font-size: 20px;
+      }
+      .b1 {
+        margin-left: -415px;
+        font-size: 20px;
+      }
+      .b2 {
+        margin-left: -400px;
+        font-size: 20px;
+      }
+      .b3 {
+        font-size: 20px;
+      }
+      .div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+      .box {
+        margin-top: 20px;
+        width: 1000px;
+        height: 130px;
+        display: flex;
+        align-items: center;
+        margin-right: -24px;
+        text-align: center;
+      }
+      .box a {
+        width: 153px;
+        height: 130px;
+        background-color: #fff;
+        display: flex;
+        margin-right: 15px;
+        margin-left: 15px;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: black;
+        border-radius: 20%;
+      }
+      .box a b,
+      .box a span {
+        margin-top: 10px;
+      }
+      .box a .color1,
+      .box a .color4 {
+        color: blue;
+      }
+      .box a .color2,
+      .box a .color5 {
+        color: orange;
+      }
+      .box a .color3 {
+        color: yellowgreen;
+      }
+      .box a .color6 {
+        color: rgb(101, 209, 205);
+      }
+      .box a span {
+        font-size: 10px;
+      }
+      .box a:hover {
+        margin-top: -10px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+      }
+      .box1 {
+        margin-top: 32px;
+        width: 1000px;
+        height: 500px;
+        display: flex;
+        margin-right: -24px;
+        text-align: center;
+      }
+      .open {
+        flex: 1;
+        width: 50%;
+        height: 100%;
+      }
+      .open1 {
+        flex: 1;
+        width: 50%;
+        height: 100%;
+      }
+      .butt {
+        width: 204px;
+        height: 25px;
+        margin-top: -26px;
+        margin-left: 278px;
+      }
+      .but {
+        border: none;
+        border-radius: 5px;
+      }
+      .but:hover {
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: rgb(113, 113, 236);
+        color: #fff;
+      }
+      #main {
+        margin-top: 20px;
+        margin-left: 0px;
+        width: 485px;
+        height: 454px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      #main1 {
+        margin-top: 20px;
+        margin-left: 15px;
+        width: 485px;
+        height: 454px;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+      .box2 {
+        margin-top: 32px;
+        width: 1000px;
+        height: 500px;
+        background-color: #fff;
+        margin-right: -24px;
+      }
+      .open2 {
+        width: 100%;
+        height: 90%;
+        margin-top: 22px;
+        border-radius: 10px;
+      }
+      .butt1 {
+        margin-left: 545px;
+        margin-top: -25px;
+        width: auto;
+        height: 25px;
+      }
+      .box4 {
+        margin-top: 32px;
+        width: 400px;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -24px;
+        text-align: center;
+        
+      }
+      .box4 a {
+        width: 180px;
+        height: 130px;
+        margin-right: 20px;
+        margin-top: 11px;
+        background-color: rgb(190, 184, 184);
+        text-decoration: none;
+        border-radius: 10px;
+        color: black;
+      }
+      .box4 a b,
+      .box4 a span,
+      .box4 a h2 {
+        margin-top: 26px;
+      }
+      .box4 a span {
+        font-size: 10px;
+      }
+      .box4 a:hover {
+        margin-top: -10px;
+        box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+      }
+      .box5 {
+        margin-top: -450px;
+        height: 100%;
+        border-radius: 10px;
+        display: flex;
+        margin-left: 419px;
+        background-color: #fff;
+        text-align: center;
+        
+      }
+      #main2 {
+       width: 100%;
+       height: 100%;
+        background-color: #fff;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="div">
+      <b class="b">待办事项</b>
+      <div class="box">
+        <a href="#">
+          <b>待发货订单</b>
+          <span>单位(笔)</span>
+          <h2 class="color1">4</h2>
+        </a>
+        <a href="#">
+          <b>待处理售后</b>
+          <span>单位(笔)</span>
+          <h2 class="color2">0</h2>
+        </a>
+        <a href="#">
+          <b>待付款订单</b>
+          <span>单位(笔)</span>
+          <h2 class="color3">113</h2>
+        </a>
+        <a href="#">
+          <b>待补货商品</b>
+          <span>单位(笔)</span>
+          <h2 class="color4">0</h2>
+        </a>
+        <a href="#">
+          <b>待审核会员</b>
+          <span>单位(笔)</span>
+          <h2 class="color5">0</h2>
+        </a>
+        <a href="#">
+          <b>待审核佣金</b>
+          <span>单位(笔)</span>
+          <h2 class="color6">948.19</h2>
+        </a>
+      </div>
+      <div class="box1">
+        <div class="open">
+          <b class="b1">新增会员</b>
+          <div class="butt">
+            <button id="option" class="but">今天</button>
+            <button id="option1" class="but">昨天</button>
+            <button id="option2" class="but">近7日</button>
+            <button id="option3" class="but">近30日</button>
+          </div>
+          <div id="main"></div>
+        </div>
+        <div class="open1">
+          <b class="b2">新增订单</b>
+          <div class="butt">
+            <button id="option4" class="but">今天</button>
+            <button id="option5" class="but">昨天</button>
+            <button id="option6" class="but">近7日</button>
+            <button id="option7" class="but">近30日</button>
+          </div>
+          <div id="main1"></div>
+        </div>
+      </div>
+
+      <div class="box2">
+        <b class="b3">新增订单</b>
+        <div class="butt1">
+          <input type="date" name="" id="" value="2023-05-12" />
+          <input type="date" name="" id="" value="2023-05-11" />
+          <button id="option8" class="but">今天</button>
+          <button id="option9" class="but">昨天</button>
+          <button id="option10" class="but">近7日</button>
+          <button id="option11" class="but">近30日</button>
+        </div>
+        <div class="open2">
+          <div class="box4">
+            <a href="#">
+              <b>成交金额(元)</b>
+              <h2 class="color1">796</h2>
+              <span>较昨日</span>
+            </a>
+            <a href="#">
+              <b>退还金额(元)</b>
+              <h2 class="color1">0</h2>
+              <span>较昨日</span>
+            </a>
+            <a href="#">
+                
+              <b>支付订单数(笔)</b>
+              <h2 class="color1">4</h2>
+              <span>较昨日</span>
+            </a>
+            <a href="#">
+                
+              <b>支付人数(人)</b>
+              <h2 class="color1">4</h2>
+              <span>较昨日</span>
+            </a>
+            <a href="#">
+              <b>客单价(元)</b>
+              <h2 class="color1">199</h2>
+              <span>较昨日</span>
+            </a>
+            <a href="#">
+              <b>笔单价(元)</b>
+              <h2 class="color1">199</h2>
+              <span>较昨日</span>
+            </a>
+          </div>
+          <div class="box5">
+            <div id="main2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var chartDom = document.getElementById("main");
+      var myChart = echarts.init(chartDom);
+      var option;
+      var option1;
+      var option2;
+      var option3;
+      option = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增会员"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "新增会员",
+            data: [33, 12, 31, 24, 40, 50, 10, 38, 30, 42, 15],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option1 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增会员"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "新增会员",
+            data: [43, 22, 11, 34, 20, 30, 47, 39, 20, 12, 5],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option2 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增会员"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "新增会员",
+            data: [43, 22, 41, 18, 20, 12, 15],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option3 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增会员"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "新增会员",
+            data: [33, 12, 24, 36, 19, 42, 35],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option && myChart.setOption(option);
+      document.getElementById("option").addEventListener("click", function () {
+        // 当点击 option1 按钮时，更新图表数据为 option1
+        myChart.setOption(option);
+      });
+
+      document.getElementById("option1").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart.setOption(option1);
+      });
+      document.getElementById("option2").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart.setOption(option2);
+      });
+      document.getElementById("option3").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart.setOption(option3);
+      });
+      // import * as echarts from 'echarts';
+
+      // 基于准备好的dom，初始化echarts实例
+      var chartDom1 = document.getElementById("main1");
+      var myChart1 = echarts.init(chartDom1);
+      var obj;
+      var obj1;
+      var obj2;
+      var obj3;
+      obj = {
+        title: {
+          textStyle: {
+            color: "red",
+            fontSize: 30,
+            fontWeight: "bold",
+          },
+          left: "center",
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增订单"],
+          left: 340,
+        },
+        xAxis: {
+          //文字
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "新增订单",
+            type: "bar",
+            data: [0, 0, 2, 0, 3, 1],
+          },
+        ],
+      };
+      obj1 = {
+        title: {
+          textStyle: {
+            color: "red",
+            fontSize: 30,
+            fontWeight: "bold",
+          },
+          left: "center",
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增订单"],
+          left: 340,
+        },
+        xAxis: {
+          //文字
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "新增订单",
+            type: "bar",
+            data: [1, 0, 0, 3, 1],
+          },
+        ],
+      };
+      obj2 = {
+        title: {
+          textStyle: {
+            color: "red",
+            fontSize: 30,
+            fontWeight: "bold",
+          },
+          left: "center",
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增订单"],
+          left: 340,
+        },
+        xAxis: {
+          //文字
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "新增订单",
+            type: "bar",
+            data: [2, 0, 1, 0, 1],
+          },
+        ],
+      };
+      obj3 = {
+        title: {
+          textStyle: {
+            color: "red",
+            fontSize: 30,
+            fontWeight: "bold",
+          },
+          left: "center",
+        },
+        tooltip: {},
+        legend: {
+          data: ["新增订单"],
+          left: 340,
+        },
+        xAxis: {
+          //文字
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        yAxis: {},
+        series: [
+          {
+            name: "新增订单",
+            type: "bar",
+            data: [0, 0, 0, 3, 0, 2, 1],
+          },
+        ],
+      };
+      myChart1.resize({
+        width: 480,
+        height: 455,
+      });
+      obj && myChart1.setOption(obj);
+      document.getElementById("option4").addEventListener("click", function () {
+        // 当点击 option1 按钮时，更新图表数据为 option1
+        myChart1.setOption(obj);
+      });
+
+      document.getElementById("option5").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart1.setOption(obj1);
+      });
+      document.getElementById("option6").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart1.setOption(obj2);
+      });
+      document.getElementById("option7").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart1.setOption(obj3);
+      });
+      var chartDom2 = document.getElementById("main2");
+      var myChart2 = echarts.init(chartDom2);
+      var option8;
+      var option9;
+      var option10;
+      var option11;
+      option8= {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["成交金额"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "成交金额",
+            data: [313, 112, 311, 214, 410, 510, 110, 638, 350,542, 115],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option9 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["成交金额"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "成交金额",
+            data: [413, 262, 114, 324, 520, 230, 427, 639, 210, 172, 695],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option10 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["成交金额"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "成交金额",
+            data: [431, 222, 421, 108, 270, 152, 159],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option11 = {
+        xAxis: {
+          type: "category",
+          data: [
+            "00:00",
+            "03:00",
+            "06:00",
+            "09:00",
+            "12:00",
+            "15:00",
+            "18:00",
+            "21:00",
+          ],
+        },
+        tooltip: {},
+        legend: {
+          data: ["成交金额"],
+          left: 340,
+        },
+        yAxis: {
+          type: "value",
+        },
+        series: [
+          {
+            name: "成交金额",
+            data: [333, 632, 124, 366, 199, 422, 315],
+            type: "line",
+            smooth: true,
+          },
+        ],
+      };
+      option8 && myChart2.setOption(option8);
+      document.getElementById("option8").addEventListener("click", function () {
+        // 当点击 option1 按钮时，更新图表数据为 option1
+        myChart2.setOption(option8);
+      });
+
+      document.getElementById("option9").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart2.setOption(option9);
+      });
+      document.getElementById("option10").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart2.setOption(option10);
+      });
+      document.getElementById("option11").addEventListener("click", function () {
+        // 当点击 option2 按钮时，更新图表数据为 option2
+        myChart2.setOption(option11);
+      });
+      // import * as echarts from 'echarts';
+    </script>
+  </body>
+</html>
