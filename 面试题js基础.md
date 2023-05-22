@@ -344,10 +344,67 @@
 ### 49.什么是 ECMAScript？
 
     ECMAScript 是构成 JavaScript 基础的脚本语言。
-
     ECMAScript 由 ECMA 国际标准组织标准化（查看 ECMA-262 和 ECMA-402 规范）
 ### 50.JSON用在什么地方？
 
     当向服务器发送数据和向服务器发送数据时，数据必须是文本格式。
 
     JSON 是一种纯文本格式，允许将数据发送到服务器以及从服务器向浏览器发送数据。几乎所有编程语言都支持 JSON，因此它也可以与其他语言一起使用。
+### 51.内存泄漏怎么理解
+    内存泄漏指的是我们用动态存储分配的函数来开辟空间，但是在使用完了没有释放，结果就一直占据该内存单元，直到程序结束。简而言之就是用完了还没回收这就是内存泄漏。
+### 52.说说你了解的暂时性死区
+    如果区块中存在let和const命令，这个区块对这些命令声明的变量，从一开始就形成了封闭作用域。凡是在声明之前就使用这些变量，就会报错。
+### 53.对前端性能优化有什么了解？一般都通过那几个方面去优化的？
+    前端性能优化的七大手段
+    1. 减少请求数量
+    2. 减小资源大小
+    3. 优化网络连接
+    4. 优化资源加载
+    5. 减少重绘回流
+    6. 性能更好的API
+    7. webpack优化
+### 54.什么是 “use strict”; ? 使用它的好处和坏处分别是什么?
+
+    优点
+
+    消除Javascript语法的一些不严谨之处，减少一些怪异行为;
+    消除代码运行的一些不安全之处，保证代码运行的安全;
+    提高编译器效率，增加运行速度;
+    为未来新版本的Javascript做好铺垫
+    缺点
+
+    严格模式改变了语义。依赖这些改变可能会导致没有实现严格模式的浏览器中出现问题或者错误。
+### 55.请解释 JavaScript 的同源策略 (same-origin policy)。
+
+    同源策略限制了一个源(origin)中加载文本或脚本与来自其它源(origin)中资源的交互方式。同源指的是协议、域名、端口相同，同源策略是一种安全协议。
+### 56.浏览器渲染机制
+
+    解析HTML文件并构建DOM树
+    解析CSS并构建CSSOM树
+    将DOM和CSSOM合并成渲染树（render tree）
+    根据渲染树来布局，计算每个节点的位置
+    调用GPU绘制，合成图层，显示在屏幕上
+    构建CSSOM树会阻塞渲染，十分消耗性能，层级越多，执行速度越慢
+    CSSOM树构建会阻塞到JS执行和DOM渲染
+### 57.Worker 实现多线程
+
+    worker，它能向浏览器申请开辟一个线程来处理js，
+    一般用来优化UI展示、交互的任务，用来完成耗时操作，
+
+    如大量操作DOM，复杂的计算、大文件上传、主流程加载速度优化，
+
+    var work = new Worker('js文件的路径');
+    postMessage('hello')
+    onmessage = function (event) {}
+### 58.JSON.stringify() 特性
+
+    对 undefined、函数和symbol的值
+    对象：stirngify({a: undefined})序列化时会忽略跳过
+    数组：stirngify([undefined、Fn、symbol]) === null 序列化后变成 null
+    单独：stirngify(undefined/Fn/symbol) === undefined 序列化后变成 undefined
+### 59.v-html 和  @click、class不生效
+    @click改为onclick，将method里的点击事件赋值到window方法上
+    class不生效：可以说使用  /deep/  或 >>>  穿透，新建style，不含scoped
+### 60.计算页面白屏事件
+
+    在header中和body后打印一个时间，两者相减即可
